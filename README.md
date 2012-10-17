@@ -5,14 +5,14 @@
 ### Background ###
 Thus far touch events have mainly only been supported on some mobile browsers. Firefox (as of version 4) is an exception in the desktop department and supports a mode where you can enable touch support (however it is a bit of a secret). Chrome's emulation of touch support, frankly just doesn't work.
 
-For most of us this doesn't really cut it. I want multi-touch support on my desktop dammit and across all browsers! This is what the aim of this library is. Using Caress Client in conjunction with the cross platform [Caress Server](https://github.com/ekryski/caress-server/) + some hardware that spits out TUIO, you too can have multi-touch support in your browser!
+For most of us this doesn't really cut it. I want multi-touch support on my desktop dammit! And across all browsers! This is what the aim of this library is. Using Caress Client + [Caress Server](https://github.com/ekryski/caress-server/) + some hardware that spits out TUIO, you too can have multi-touch support in your browser!
 
 ## Getting Started
 
 ### Client
 You need to include a few client side libraries in your html file. They are:
 
-    <script src="jquery-1.8.1.min.js"></script>`
+    <script src="jquery-1.8.1.min.js"></script>
     <script src="underscore-1.3.3.min.js"></script>
     <script src="socket.io-0.9.10.min.js"></script>
     <script src="caress-client.js"></script>
