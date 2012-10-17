@@ -17,10 +17,9 @@ module.exports = function(grunt) {
       dist: {
         src: [
           "<banner:meta.banner>",
-          "lib/caress-server.js",
-          "lib/tuio-packet.js"
+          "lib/Caress.js"
         ],
-        dest: "dist/<%= pkg.name %>"
+        dest: "dist/<%= pkg.name.split('-')[0] %>-<%= pkg.version %>.js"
       }
     },
     min: {
@@ -29,7 +28,7 @@ module.exports = function(grunt) {
           "<banner:meta.banner>",
           "<config:concat.dist.dest>"
         ],
-        dest: 'dist/<%= pkg.name.split(".")[0] %>.min.js'
+	      dest: "dist/<%= pkg.name.split('-')[0] %>-<%= pkg.version %>.min.js"
       }
     },
     lint: {
@@ -97,6 +96,6 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask("default", "lint qunit concat min");
+  grunt.registerTask("default", "concat min");
 
 };
