@@ -3,12 +3,24 @@
 <head>
   <meta charset="utf-8">
   <title>QUnit Example</title>
-  <link rel="stylesheet" href="resources/qunit.css">
+  <link rel="stylesheet" href="resources/mocha.css">
 </head>
 <body>
-<div id="qunit"></div>
-  <script src="resources/qunit.js"></script>
+<div id="mocha"></div>
   <script src="../lib/Caress.js"></script>
-  <script src="caress.js"></script>
+  <script src="resources/chai.js"></script>
+  <script src="resources/mocha.js"></script>
+  <script>mocha.setup('bdd')</script>
+    <script>
+      function assert(expr, msg) {
+        if (!expr) throw new Error(msg || 'failed');
+      }
+    </script>
+    <script src="caress.js"></script>
+    <script>
+      onload = function(){
+        var runner = mocha.run();
+      };
+    </script>
 </body>
 </html>
