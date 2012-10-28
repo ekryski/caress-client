@@ -5,7 +5,7 @@
 */
 
 var socketio = require('socket.io'),
-    CaressServer = require("../index.js");
+    CaressServer = require("caress-server");
 
 var caress = new CaressServer('0.0.0.0', 3333, {json: true});
 
