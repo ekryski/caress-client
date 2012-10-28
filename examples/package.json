@@ -18,6 +18,9 @@
     "socket.io": ">=0.8",
     "caress-server": "git+ssh://git@github.com:ekryski/caress-server.git"
   },
+  "scripts": {
+    "start": "./server.js"
+  },
   "keywords": [
     "tuio",
     "osc",
