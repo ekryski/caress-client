@@ -10,14 +10,14 @@ module.exports = function(grunt) {
         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
     },
-    qunit: {
-      files: ["test/**/*.html"]
+    mocha: {
+      all: ["test/**/*.html"]
     },
     concat: {
       dist: {
         src: [
           "<banner:meta.banner>",
-          "lib/Caress.js"
+          "lib/caress.js"
         ],
         dest: "dist/<%= pkg.name.split('-')[0] %>-<%= pkg.version %>.js"
       }
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
           "<banner:meta.banner>",
           "<config:concat.dist.dest>"
         ],
-	      dest: "dist/<%= pkg.name.split('-')[0] %>-<%= pkg.version %>.min.js"
+        dest: "dist/<%= pkg.name.split('-')[0] %>-<%= pkg.version %>.min.js"
       }
     },
     lint: {
@@ -69,19 +69,16 @@ module.exports = function(grunt) {
         options: this.options,
         globals: {
           _: true,
-          Tuio: true,
+          Caress: true,
           io: true}
       },
       tests: {
         options: this.options,
         globals: {
           module: true,
-          test: true,
-          ok: true,
-          equal: true,
-          deepEqual: true,
-          QUnit: true,
-          Tuio: true,
+          chai: true,
+          mocha: true,
+          Caress: true,
           io: true}
       }
     },
@@ -95,7 +92,12 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-mocha');
+
+  // Alias 'test' to 'mocha' so you can run `grunt test`
+  grunt.registerTask('test', 'mocha:all');
+
   // Default task.
-  grunt.registerTask("default", "concat min");
+  grunt.registerTask("default", "concat min test");
 
 };
