@@ -6,7 +6,7 @@ io = {
 		socket = new EventEmitter();
 		return socket;
 	}
-}
+};
 client = new Caress.Client();
 client.connect();
 socket.emit('connect');
