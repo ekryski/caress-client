@@ -23,7 +23,14 @@ You need to include a few client side libraries in your html file. They are:
 Grab the [Caress Server](https://github.com/ekryski/caress-server/) and follow the instructions on the README.
 
 ## Examples
-_See the [examples](https://github.com/ekryski/Caress/tree/master/examples) folder_
+* Option A: _See the [examples](https://github.com/ekryski/Caress/tree/master/examples) folder_
+* Option B:
+    * Download or clone the repo
+    * `cd caress-client`
+    * `npm install`
+    * `npm start`
+    * Go to `http://localhost:5000/`
+    * Start up your TUIO device with port 3333 and play with the examples!
 
 ## Contributing
 I am open to pull requests but make sure you include unit tests with your code.
