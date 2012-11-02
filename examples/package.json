@@ -19,7 +19,7 @@
     "caress-server": "git+ssh://git@github.com:ekryski/caress-server.git"
   },
   "scripts": {
-    "start": "./server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "tuio",
