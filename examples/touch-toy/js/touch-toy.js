@@ -2,8 +2,8 @@
 * Copyright (c) 2012 @alteredq & Eric Kryski
 * MIT Licensed
 *
-* Javascript written by http://alteredqualia.com/touchtoy/
-* so he/she deserves the credit for this awesome app!
+* Original JavaScript written by http://alteredqualia.com/touchtoy/
+* so he/she deserves the credit for this awesome app! Modified by Eric Kryski
 */
 
 // debug
@@ -30,7 +30,7 @@ var EPSILON = 0.01;     // float comparison precision
 
 var DOUBLE_TOUCH_DURATION = 300;
 var TOUCH_CLICK_TOLERANCE = 10;
-var TOUCH_CLICK_TOLERANCE_MENU = 30;
+var TOUCH_CLICK_TOLERANCE_MENU = 50;
 
 // constants
 
@@ -1866,9 +1866,7 @@ function generateGenerator( theme, maskImage ) {
   return function() {
 
     generateSprites( theme, maskImage );
-
-  }
-
+  };
 }
 
 function loadGate() {
@@ -2509,12 +2507,12 @@ function handleResize() {
     SCREEN_WIDTH = newWidth;
     SCREEN_HEIGHT = newHeight;
 
-    // if ( CAPABILITIES.isMobile ) {
+    if ( CAPABILITIES.isMobile ) {
 
       CANVAS_WIDTH = SCREEN_WIDTH;
       CANVAS_HEIGHT = SCREEN_HEIGHT;
 
-    // }
+    }
 
     centerElement( EL_BADGE );
 
@@ -2748,7 +2746,6 @@ function setTheme( index ) {
 }
 
 function generateThemeClickHandler( index ) {
-
   return function( event ) {
 
     event.preventDefault();
@@ -2976,45 +2973,16 @@ function init() {
 
   CAPABILITIES = detectCapabilities();
 
-  // mobile vs desktop
+  // Set Canvas Size
 
-  // if ( CAPABILITIES.isMobile ) {
+  CANVAS_WIDTH =  window.innerWidth;
+  CANVAS_HEIGHT = window.innerHeight;
 
-    CANVAS_WIDTH =  window.innerWidth;
-    CANVAS_HEIGHT = window.innerHeight;
+  EL_CANVAS.style.position = "absolute";
+  EL_MENU.style.position = "absolute";
 
-    EL_CANVAS.style.position = "absolute";
-    EL_MENU.style.position = "absolute";
-
-    EL_BADGE.style.top = "0";
-    EL_BADGE.style.left = "0";
-
-  // }
-  // else {
-
-  //  CANVAS_WIDTH = 800;
-  //  CANVAS_HEIGHT = 600;
-
-  //  EL_HEADER.style.display = "block";
-
-  //  document.body.style.backgroundColor = "#333";
-  //  document.body.style.overflow = "auto";
-
-  //  EL_WRAPPER.className = "shadow";
-
-  //  EL_WRAPPER.style.width = CANVAS_WIDTH + "px";
-  //  EL_WRAPPER.style.height = CANVAS_HEIGHT + "px";
-
-  //  EL_WRAPPER.style.margin = "3.5em auto 2em";
-  //  EL_WRAPPER.style.padding = "2em";
-  //  EL_WRAPPER.style.backgroundColor = "#050505";
-  //  EL_WRAPPER.style.borderRadius = "15px";
-
-  //  EL_BADGE.style.position = "relative";
-  //  EL_BADGE.style.width = "11em";
-  //  EL_BADGE.style.margin = "0px auto";
-
-  // }
+  EL_BADGE.style.top = "0";
+  EL_BADGE.style.left = "0";
 
   // browser specific fixes
 
@@ -3148,7 +3116,7 @@ function init() {
 
   // mouse events (fallback)
 
-  if ( ! CAPABILITIES.hasTouch ) {
+  if ( ! CAPABILITIES.hasTouch || !CAPABILITIES.isMobile ) {
 
     EL_CANVAS.addEventListener( 'mousemove', function( event ) {
 
@@ -3248,10 +3216,11 @@ function init() {
 
       elButtonTheme.addEventListener( "touchend", generateThemeTouchEndHandler( i ) );
 
-    } else {
+    }
+
+    if ( !CAPABILITIES.isMobile ) {
 
       elButtonTheme.addEventListener( "click", generateThemeClickHandler( i ) );
-
     }
 
     EL_MENU.appendChild( elButtonTheme );

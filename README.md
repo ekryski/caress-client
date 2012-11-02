@@ -12,10 +12,10 @@ For most of us this doesn't really cut it. I want multi-touch support on my desk
 ### Client
 You need to include a few client side libraries in your html file. They are:
 
-    <script src="jquery-1.8.1.min.js"></script>
-    <script src="underscore-1.3.3.min.js"></script>
-    <script src="socket.io-0.9.10.min.js"></script>
-    <script src="caress-client.js"></script>
+    <script type="text/javascript" src="jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="underscore-1.3.3.min.js"></script>
+    <script type="text/javascript" src="socket.io-0.9.10.min.js"></script>
+    <script type="text/javascript" src="caress-0.1.0.js"></script>
 
 *I'm planning on trying to get rid of the dependency on underscore*
 
