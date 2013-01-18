@@ -17,6 +17,7 @@ module.exports = function(grunt) {
       dist: {
         src: [
           "<banner:meta.banner>",
+          "lib/lodash.custom.js",
           "lib/caress.js"
         ],
         dest: "dist/<%= pkg.name.split('-')[0] %>-<%= pkg.version %>.js"
