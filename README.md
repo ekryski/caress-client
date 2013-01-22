@@ -15,7 +15,7 @@ You need to include a few client side libraries in your html file. They are:
     <script type="text/javascript" src="socket.io-0.9.10.min.js"></script>
     <script type="text/javascript" src="caress-0.1.0.js"></script>
 
-Then just add and start binding regular touch events at will:
+Then just add the code below and start binding regular touch events at will:
 
     <script>
       $(function() {

@@ -1,19 +1,23 @@
 {
   "name": "caress-client",
   "description": "caress-client is a JavaScript library that converts TUIO events to W3C compliant browser touch events",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/ekryski/caress-client",
   "author": {
     "name": "Eric Kryski",
     "email": "e.kryski@gmail.com"
   },
-  "contributors": [{
-    "name": "David Lueke"
-  }],
-  "licenses": [{
-    "type": "MIT",
-    "url": "http://opensource.org/licenses/MIT"
-  }],
+  "contributors": [
+    {
+      "name": "David Lueke"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ekryski/caress-client.git"
@@ -24,7 +28,7 @@
   "dependencies": {
     "express": ">=3.0",
     "socket.io": ">=0.8",
-    "caress-server": "git+ssh://git@github.com:ekryski/caress-server.git"
+    "caress-server": ">=0.1.1"
   },
   "devDependencies": {
     "grunt": "*",
